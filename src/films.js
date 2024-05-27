@@ -1,13 +1,17 @@
+const movies = require("./data");
+
 // Exercise 1: Get the array of all directors.
 function getAllDirectors(array) {
-  let result =  ???;
+  const directors = array.map(movies => movies.director)
+  let result = directors
   console.log("EXERCICE 1 ->", result);
   return result;
 }
 
 // Exercise 2: Get the films of a certain director
 function getMoviesFromDirector(array, director) {
- 
+  return array.filter(movie => movie.director === director)
+  
 }
 
 // Exercise 3: Calculate the average of the films of a given director.
