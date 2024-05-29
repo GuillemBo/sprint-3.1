@@ -45,16 +45,48 @@ function moviesAverageByCategory(array, genre) {
 }
 
 // Exercise 7: Modify the duration of movies to minutes
-function hoursToMinutes() {
+function hoursToMinutes(array) {
+
+  function convertirMinutos(duration) {
+
+      const regex = /(\d+)h\s*(\d+)min/;
+      const regexHours = /(\d+)h/;
+      const matches = duration.match(regex, regexHours)
+      const matchesHours = duration.match(regexHours)
+
+      if (matches) {
+          const hours = parseInt(matches[1], 10);
+          const minutes = parseInt(matches[2], 10);
+          return (hours * 60) + minutes
+      } else if (matchesHours){
+          const hours2 = parseInt(matchesHours[1], 10);
+          return hours2 * 60
+      } else {
+          return null
+      }
+  }
+
+  return array.map(movie => {
+      const durationMinutes = convertirMinutos(movie.duration)
+      return {...movie, duration: durationMinutes}
+      
+  })
 
 }
 
 // Exercise 8: Get the best film of a year
-function bestFilmOfYear() {
-  
+function bestFilmOfYear(array, year) {
+  const moviesByYear = array.filter(movie => movie.year == year)
+  const bestScore = moviesByYear.reduce((previous, current) => {
+      if (current.score > previous.score) {
+          return current
+      } else {
+          return previous
+      }
+  })
+  return [bestScore]
+
 }
-
-
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
