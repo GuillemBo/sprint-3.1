@@ -1,4 +1,4 @@
-const movies = require("./data");
+// const movies = require("./data");
 
 // Exercise 1: Get the array of all directors.
 function getAllDirectors(array) {
@@ -11,7 +11,6 @@ function getAllDirectors(array) {
 // Exercise 2: Get the films of a certain director
 function getMoviesFromDirector(array, director) {
   return array.filter(movie => movie.director === director)
-  
 }
 
 // Exercise 3: Calculate the average of the films of a given director.
@@ -51,7 +50,7 @@ function hoursToMinutes(array) {
 
       const regex = /(\d+)h\s*(\d+)min/;
       const regexHours = /(\d+)h/;
-      const matches = duration.match(regex, regexHours)
+      const matches = duration.match(regex)
       const matchesHours = duration.match(regexHours)
 
       if (matches) {
