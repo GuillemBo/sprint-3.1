@@ -1,4 +1,4 @@
-// const movies = require("./data");
+const movies = require("./data");
 
 // Exercise 1: Get the array of all directors.
 function getAllDirectors(array) {
